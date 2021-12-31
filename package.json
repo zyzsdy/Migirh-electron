@@ -1,0 +1,44 @@
+{
+  "name": "migirh-electron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "tsc && electron .",
+    "dev": "SET NODE_ENV=develop && tsc && electron .",
+    "build": "tsc && electron-builder"
+  },
+  "build": {
+    "appId": "net.migirh.app",
+    "productName": "migirh",
+    "copyright": "Copyright © 2022, Ted Zyzsdy, member of MeowSound Idols. Open-sourced under GPLv3.",
+    "directories": {
+      "output": "out"
+    },
+    "files": [
+      "**/*",
+      "!libs${/*}",
+      "!src${/*}"
+    ],
+    "extraResources": [
+      {
+        "from": "libs",
+        "to": "libs"
+      }
+    ],
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "icon": "icon.ico"
+    },
+    "asar": false
+  },
+  "author": "Ted Zyzsdy",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "electron": "^16.0.5",
+    "electron-builder": "^22.14.5",
+    "typescript": "^4.5.4"
+  }
+}
